@@ -16,6 +16,9 @@ public class Team {
     @Column(nullable = false)
     private String name;
 
+    @Column(name = "qualified_to_next_round")
+    private Boolean qualifiedToNextRound;
+
     private int points;
 
     @ManyToOne

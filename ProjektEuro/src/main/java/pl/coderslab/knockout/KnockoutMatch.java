@@ -1,5 +1,7 @@
 package pl.coderslab.knockout;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.coderslab.location.Location;
 import pl.coderslab.team.Team;
@@ -22,8 +24,8 @@ public class KnockoutMatch {
     @JoinColumn(name = "away_team_id", nullable = false)
     private Team awayTeam;
 
-    private int homeTeamScore;
-    private int awayTeamScore;
+    private Integer homeTeamScore;
+    private Integer awayTeamScore;
 
     private LocalDateTime matchDateTime;
 
@@ -34,4 +36,9 @@ public class KnockoutMatch {
     @ManyToOne
     @JoinColumn(name = "knockout_stage_id", nullable = false)
     private KnockoutStage knockoutStage;
+
+    private Integer extraTimeHomeScore;
+    private Integer extraTimeAwayScore;
+    private Integer penaltyHomeScore;
+    private Integer penaltyAwayScore;
 }

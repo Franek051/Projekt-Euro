@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -22,4 +23,8 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+    private int enabled;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> roles;
 }

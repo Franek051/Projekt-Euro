@@ -2,10 +2,13 @@ package pl.coderslab.match;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.coderslab.team.Team;
 import pl.coderslab.location.Location;
 
 import javax.persistence.*;
+import javax.validation.constraints.Null;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 @Setter
 @Getter
@@ -24,10 +27,11 @@ public class Match {
     @JoinColumn(name = "away_team_id", nullable = false)
     private Team awayTeam;
 
-    private int homeTeamScore;
-    private int awayTeamScore;
+    private Integer homeTeamScore;
 
-    private LocalDateTime matchDateTime;
+    private Integer awayTeamScore;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate matchDateTime;
 
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = false)

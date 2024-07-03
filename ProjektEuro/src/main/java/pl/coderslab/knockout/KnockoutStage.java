@@ -1,5 +1,7 @@
 package pl.coderslab.knockout;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.coderslab.knockout.KnockoutMatch;
 
@@ -18,4 +20,11 @@ public class KnockoutStage {
 
     @OneToMany(mappedBy = "knockoutStage")
     private List<KnockoutMatch> matches;
+
+    public KnockoutStage() {
+    }
+
+    public KnockoutStage(String stageName) {
+        this.stageName = stageName;
+    }
 }
